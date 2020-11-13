@@ -26,16 +26,15 @@ export default function App() {
     <div>
       <NavBar />
       <div>{renderItems()}</div>
-      <form onSubmit={handleSubmit}>
-        <div className="input">
+      <form className="input" onSubmit={handleSubmit}>
           <input
             onChange={onInputChange}
             type="text"
             className="input-box"
             placeholder="Add items..."
+            value={term}
           ></input>
           <button className="button">Add</button>
-        </div>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 body {
   margin: 0;
   box-sizing: border-box;
+  background-color: #1C1F33;
 }
 
 .input {
@@ -8,7 +9,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 400px;
+  height: 500px;
+  margin: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 5px;
+  background-color: #D33E43;
 }
 
 .input-box {
@@ -20,11 +25,11 @@ body {
 .button {
   width: 310px;
   height: 35px;
-  background-color: transparent;
+  background-color: #9B7874;
   border-radius: 5px;
   font-size: 30px;
 }
 
 .button:hover {
-  background-color: blue;
+  background-color:#666370;
 }
