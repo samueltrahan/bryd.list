@@ -8,10 +8,10 @@ export default function App() {
 
   useEffect(() => {}, []);
 
-  const handleSubmit = (e, item) => {
+  const handleSubmit = (e) => {
     console.log(e.target.value);
     e.preventDefault();
-    setItems(e.target.value);
+    setItems(e);
   };
 
   const onInputChange = (e) => {
@@ -26,7 +26,7 @@ export default function App() {
     <div>
       <NavBar />
       <div>{renderItems()}</div>
-      <form className="input" onSubmit={handleSubmit}>
+      <form className="input">
           <input
             onChange={onInputChange}
             type="text"
@@ -34,7 +34,7 @@ export default function App() {
             placeholder="Add items..."
             value={term}
           ></input>
-          <button className="button">Add</button>
+          <button onClick={(e) => handleSubmit(e)} className="button">Add</button>
       </form>
     </div>
   );
