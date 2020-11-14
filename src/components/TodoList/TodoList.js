@@ -6,7 +6,7 @@ function TodoList({items}) {
   return (
     <div className="todo-list">
       {items.map((item) => 
-      <Todo item={item}/>
+      <Todo key={item.id} item={item}/>
       )}
     </div>
   )
