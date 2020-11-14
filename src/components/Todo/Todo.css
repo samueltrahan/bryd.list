@@ -1,0 +1,16 @@
+.checkbox {
+  -webkit-appearance:none;
+  width:30px;
+  height:30px;
+  background: transparent;
+  border-radius:5px;
+  border:2px solid #555;
+}
+
+.checkbox:checked {
+  background: #1C1F33;
+}
+
+.todo {
+  font-family: 'Abril Fatface', cursive;
+}

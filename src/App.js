@@ -60,10 +60,12 @@ export default function App() {
           placeholder="Add items..."
           value={term}
         ></input>
+        <div className="buttons">
         <button onClick={(e) => handleSubmit(e)} className="button">
           Add to Shopping List
         </button>
-        <button onClick={handleClearItems}>Clear Shopping List</button>
+        <button className="clear-btn" onClick={handleClearItems}>Clear Shopping List</button>
+        </div>
         <h3>{items.filter(item => !item.complete).length} left to pick up</h3>
       </form>
     </div>
