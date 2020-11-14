@@ -34,6 +34,7 @@ export default function App() {
             value={term}
           ></input>
           <button onClick={(e) => handleSubmit(e)} className="button">Add</button>
+          <h3>{items.length} left to pick up</h3>
       </form>
     </div>
   );
