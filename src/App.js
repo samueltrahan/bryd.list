@@ -2,18 +2,31 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import TodoList from "./components/TodoList/TodoList";
-import uuid from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
+
+const LOCAL_STORAGE_KEY = "bryd-list.items"
 
 export default function App() {
   const [term, setTerm] = useState("");
   const [items, setItems] = useState([]);
   const itemNameRef = useRef();
 
+
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+   if(storedItems) setItems(storedItems)
+  }, [])
+
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items))
+  }, [items])
+
   const handleSubmit = (e) => {
     const name = itemNameRef.current.value;
     if (name === "") return;
     setItems(prevItems => {
-      return [...prevItems, {id: uuid(), name: name, complete: false}]
+      return [...prevItems, {id: uuidv4(), name: name, complete: false}]
     })
     itemNameRef.current.value = null;
   };
