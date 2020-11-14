@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
+import TodoList from './components/TodoList/TodoList';
 
 export default function App() {
   const [term, setTerm] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(["Ranch", "Salad", "Toilet Paper"]);
 
   useEffect(() => {}, []);
 
@@ -18,15 +19,13 @@ export default function App() {
     setTerm(e.target.value);
   };
 
-  const renderItems = () => {
-    return items.map((item) => <div>{item}</div>);
-  };
+  
 
   return (
     <div>
       <NavBar />
-      <div>{renderItems()}</div>
       <form className="input">
+      <TodoList items={items}/>
           <input
             onChange={onInputChange}
             type="text"
