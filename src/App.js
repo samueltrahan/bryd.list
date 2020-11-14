@@ -35,11 +35,23 @@ export default function App() {
     setTerm(e.target.value);
   };
 
+  const toggleItems = (id) => {
+    const newItems = [...items];
+    const item = newItems.find(item => item.id === id)
+    item.complete = !item.complete
+    setItems(newItems)
+  }
+
+  const handleClearItems = () => {
+    const newItems = items.filter(item => !item.complete)
+    setItems(newItems);
+  }
+
   return (
     <div>
       <NavBar />
       <form className="input">
-        <TodoList items={items} />
+        <TodoList items={items} toggleItems={toggleItems}/>
         <input
           ref={itemNameRef}
           onChange={onInputChange}
@@ -49,9 +61,10 @@ export default function App() {
           value={term}
         ></input>
         <button onClick={(e) => handleSubmit(e)} className="button">
-          Add
+          Add to Shopping List
         </button>
-        <h3>{items.length} left to pick up</h3>
+        <button onClick={handleClearItems}>Clear Shopping List</button>
+        <h3>{items.filter(item => !item.complete).length} left to pick up</h3>
       </form>
     </div>
   );
