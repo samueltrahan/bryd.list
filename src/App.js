@@ -47,6 +47,20 @@ export default function App() {
     setItems(newItems);
   }
 
+  window.addEventListener('load', () => {
+    registerSW();
+  });
+
+  async function registerSW() {
+    if('serviceWorker' in navigator) {
+      try {
+        await navigator.serviceWorker.register('./sw.js');
+      } catch (e) {
+        console.log('SW registration failed')
+      }
+    }
+  }
+
   return (
     <div>
       <NavBar />
@@ -66,7 +80,7 @@ export default function App() {
         </button>
         <button className="clear-btn" onClick={handleClearItems}>Clear Shopping List</button>
         </div>
-        <h3>{items.filter(item => !item.complete).length} left to pick up</h3>
+        <h3 className="items-left">{items.filter(item => !item.complete).length} left to pick up</h3>
       </form>
     </div>
   );
