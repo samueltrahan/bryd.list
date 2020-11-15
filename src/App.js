@@ -2,32 +2,30 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import TodoList from "./components/TodoList/TodoList";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-const LOCAL_STORAGE_KEY = "bryd-list.items"
+const LOCAL_STORAGE_KEY = "bryd-list.items";
 
 export default function App() {
   const [term, setTerm] = useState("");
   const [items, setItems] = useState([]);
   const itemNameRef = useRef();
 
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storedItems) setItems(storedItems);
+  }, []);
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-   if(storedItems) setItems(storedItems)
-  }, [])
-
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items))
-  }, [items])
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(items));
+  }, [items]);
 
   const handleSubmit = (e) => {
     const name = itemNameRef.current.value;
     if (name === "") return;
-    setItems(prevItems => {
-      return [...prevItems, {id: uuidv4(), name: name, complete: false}]
-    })
+    setItems((prevItems) => {
+      return [...prevItems, { id: uuidv4(), name: name, complete: false }];
+    });
     itemNameRef.current.value = null;
   };
 
@@ -37,35 +35,21 @@ export default function App() {
 
   const toggleItems = (id) => {
     const newItems = [...items];
-    const item = newItems.find(item => item.id === id)
-    item.complete = !item.complete
-    setItems(newItems)
-  }
+    const item = newItems.find((item) => item.id === id);
+    item.complete = !item.complete;
+    setItems(newItems);
+  };
 
   const handleClearItems = () => {
-    const newItems = items.filter(item => !item.complete)
+    const newItems = items.filter((item) => !item.complete);
     setItems(newItems);
-  }
-
-  window.addEventListener('load', () => {
-    registerSW();
-  });
-
-  async function registerSW() {
-    if('serviceWorker' in navigator) {
-      try {
-        await navigator.serviceWorker.register('./sw.js');
-      } catch (e) {
-        console.log('SW registration failed')
-      }
-    }
-  }
+  };
 
   return (
     <div>
       <NavBar />
       <form className="input">
-        <TodoList items={items} toggleItems={toggleItems}/>
+        <TodoList items={items} toggleItems={toggleItems} />
         <input
           ref={itemNameRef}
           onChange={onInputChange}
@@ -75,12 +59,16 @@ export default function App() {
           value={term}
         ></input>
         <div className="buttons">
-        <button onClick={(e) => handleSubmit(e)} className="button">
-          Add to Shopping List
-        </button>
-        <button className="clear-btn" onClick={handleClearItems}>Clear Shopping List</button>
+          <button onClick={(e) => handleSubmit(e)} className="button">
+            Add to Shopping List
+          </button>
+          <button className="clear-btn" onClick={handleClearItems}>
+            Clear Shopping List
+          </button>
         </div>
-        <h3 className="items-left">{items.filter(item => !item.complete).length} left to pick up</h3>
+        <h3 className="items-left">
+          {items.filter((item) => !item.complete).length} left to pick up
+        </h3>
       </form>
     </div>
   );
