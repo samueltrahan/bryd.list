@@ -1,0 +1,16 @@
+{
+  "short_name": "Bryd-List",
+  "name": "Bryd To-Do List",
+  "icons": [
+    {
+      "src": "/images/bryd.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/build",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
