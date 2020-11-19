@@ -48,28 +48,28 @@ export default function App() {
   return (
     <div>
       <NavBar />
-      <form className="input">
-        <TodoList items={items} toggleItems={toggleItems} />
-        <input
-          ref={itemNameRef}
-          onChange={onInputChange}
-          type="text"
-          className="input-box"
-          placeholder="Add items..."
-          value={term}
-        ></input>
-        <div className="buttons">
-          <button onClick={(e) => handleSubmit(e)} className="button">
-            Add to Shopping List
-          </button>
-          <button className="clear-btn" onClick={handleClearItems}>
-            Clear Shopping List
-          </button>
-        </div>
-        <h3 className="items-left">
-          {items.filter((item) => !item.complete).length} left to pick up
-        </h3>
-      </form>
-    </div>
+        <form className="input">
+          <TodoList items={items} toggleItems={toggleItems} />
+          <input
+            ref={itemNameRef}
+            onChange={onInputChange}
+            type="text"
+            className="input-box"
+            placeholder="Add items..."
+            value={term}
+          ></input>
+          <div className="buttons">
+            <button onClick={(e) => handleSubmit(e)} className="button">
+              Add to Shopping List
+            </button>
+            <button className="clear-btn" onClick={handleClearItems}>
+              Clear Shopping List
+            </button>
+          </div>
+          <h3 className="items-left">
+            {items.filter((item) => !item.complete).length} left to pick up
+          </h3>
+        </form>
+      </div>
   );
 }
