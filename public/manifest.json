@@ -5,8 +5,13 @@
     {
       "src": "/images/bryd.png",
       "type": "image/png",
-      "sizes": "1024x1024",
+      "sizes": "192x192",
       "purpose": "maskable"
+    },
+    {
+      "src": "/images/bryd.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": "/",
