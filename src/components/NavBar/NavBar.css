@@ -23,3 +23,9 @@
   font-family: 'Dancing Script', cursive;
   font-weight: 800;
 }
+
+@media screen and (max-width: 375px)  {
+  .logo {
+    width: 15%;
+  }
+}
