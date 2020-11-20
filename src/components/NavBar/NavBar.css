@@ -24,8 +24,14 @@
   font-weight: 800;
 }
 
+@media screen and (max-width: 675px) {
+  .logo {
+    width: 10vw;
+  }
+}
+
 @media screen and (max-width: 375px)  {
   .logo {
-    width: 15%;
+    width: 20%;
   }
 }
