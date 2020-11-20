@@ -14,3 +14,13 @@
 .todo {
   font-family: 'Abril Fatface', cursive;
 }
+@media screen and (max-width: 375px) {
+  .todo {
+    font-size: 20px;
+  }
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+  }
+}

@@ -4,13 +4,22 @@ body {
   background-color: #1C1F33;
 }
 
+.bryd-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 85vh;
+}
 
 
 .input {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 85%;
+  width: 90%;
   margin: 150px;
   border-radius: 5px;
   box-shadow: 0 0 10px 5px;
@@ -18,7 +27,7 @@ body {
 }
 
 .input-box {
-  width: 100%;
+  width: 90%;
   height: 55px;
   border-radius: 5px;
   font-size: 25px;
@@ -34,18 +43,49 @@ input::placeholder {
 }
 
 .button {
-  width: 50%;
-  height: 35px;
   background-color: #9B7874;
   border-radius: 5px;
   font-size: 15px;
+  grid-column: 1/2;
+  width: 100%;
+  height: 35px;
 }
+
+
+
+.button:after {
+  content: 'Add to Shopping List';
+  width: 100%;
+  height: 35px;
+  background-color: #9B7874;
+}
+
+.button:after:hover {
+  background-color: #666370;
+}
+
 .clear-btn {
-  width: 50%;
+  background-color: #9B7874;
+  border-radius: 5px;
+  font-size: 15px;
+  grid-column: 2/3;
+  width: 100%;
+  height: 35px;
+}
+
+.clear-btn:after {
+  content: 'Clear Shopping List';
+  color: black;
+  width: 100%;
   height: 35px;
   background-color: #9B7874;
   border-radius: 5px;
   font-size: 15px;
+  grid-column: 2/3;
+}
+
+.clear-btn:after:hover {
+  background-color: #666370;
 }
 
 .clear-btn:hover {
@@ -62,8 +102,37 @@ input::placeholder {
   text-shadow: 2px 2px 2px black;
 }
 
-@media screen and (min-width: 480px) {
-  body {
-    background-color: lightgreen;
+@media screen and (max-width: 617px) {
+
+  .input {
+    width: 90%;
+  }
+  .button {
+    font-size: 10px;
+  }
+  .clear-btn {
+    font-size: 7px;
+  }
+}
+
+@media screen and (max-width: 431px) {
+  .button:after{
+    content: 'Add';
+  }
+ 
+  .clear-btn:after {
+    content: 'Clear';
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .button {
+    width: 40vw;
+    font-size: 15px;
+  }
+
+  .clear-btn {
+    width: 40vw;
+    font-size: 15px;
   }
 }

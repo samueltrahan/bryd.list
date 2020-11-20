@@ -1,28 +1,11 @@
-.todo-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white;
-  font-size: 45px;
-  margin-bottom: 20px;
-}
 
-.todo-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 .todo-list-six {
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 45vh;
+  width: fit-content;
   color: white;
   font-size: 45px;
   margin-bottom: 20px;
