@@ -5,8 +5,9 @@
   flex-direction: column;
   flex-wrap: wrap;
   max-height: 45vh;
-  width: fit-content;
+  width: 100%;
   color: white;
   font-size: 45px;
   margin-bottom: 20px;
 }
+

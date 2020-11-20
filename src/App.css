@@ -122,6 +122,21 @@ input::placeholder {
  
   .clear-btn:after {
     content: 'Clear';
+    
+  }
+
+  .button {
+    width: 40vw;
+  }
+
+  .clear-btn {
+    width: 40vw;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }
 
@@ -135,4 +150,14 @@ input::placeholder {
     width: 40vw;
     font-size: 15px;
   }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (max-width: 1089px) {
+  
 }

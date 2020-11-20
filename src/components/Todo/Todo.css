@@ -16,11 +16,17 @@
 }
 @media screen and (max-width: 375px) {
   .todo {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .checkbox {
     width: 18px;
     height: 18px;
+  }
+}
+
+@media screen and (max-width: 1089px) {
+  .todo {
+    font-size: 20px;
   }
 }
